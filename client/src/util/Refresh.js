@@ -12,22 +12,18 @@ function Refresh() {
     url: `/api/sendy/auth/reissue`,
     headers: {
       "ngrok-skip-browser-warning": "12",
-      Refresh: localStorage.getItem("refreshToken"),
+      Refresh: sessionStorage.getItem("refreshToken"),
     },
   })
     .then((res) => {
       if (res.headers.getAuthorization) {
         //액세스토큰 재발급
-        setCookie(
-          "accessToken",
-          `${res.headers.get("Authorization")}`,
-          {
-            path: "/",
-            secure: true,
-            sameSite: "Strict",
-            HttpOnly: " HttpOnly ",
-          }
-        );
+        setCookie("accessToken", `${res.headers.get("Authorization")}`, {
+          path: "/",
+          secure: true,
+          sameSite: "Strict",
+          HttpOnly: " HttpOnly ",
+        });
       }
     })
     .catch((err) => {
