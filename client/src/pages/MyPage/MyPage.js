@@ -143,8 +143,10 @@ function MyPage() {
       data,
     });
   };
+
   const handleEditDone = () => {
     if (nickname && nickname !== userInfo && image) {
+      console.log("닉네임, 사진");
       return axios
         .all([patchNickname(), postProfileImg()])
         .then(() => {
@@ -164,6 +166,7 @@ function MyPage() {
           }
         });
     } else if (nickname && nickname !== userInfo) {
+      console.log("닉네임");
       patchNickname()
         .then(() => {
           setNickname(null);
@@ -180,6 +183,7 @@ function MyPage() {
           }
         });
     } else if (image) {
+      console.log("사진");
       postProfileImg()
         .then(() => {
           setImage(null);
@@ -193,7 +197,10 @@ function MyPage() {
             });
           }
         });
+    } else {
+      console.log(image);
     }
+
     window.location.reload();
   };
   const handleDeleteProfileImage = () => {

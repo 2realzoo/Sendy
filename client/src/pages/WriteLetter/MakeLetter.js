@@ -193,17 +193,22 @@ function MakeLetter({ makeLetterModalRef }) {
         {canUseUrl &&
         (letterContents?.password?.length === 4 ||
           letterContents.password === null) ? (
-          <Link
-            to={`/writeletter/complete/${letterContents?.urlName}`}
-            state={{
-              from: "writeletter",
-            }}>
-            <ShadowButton
-              backgroundColor={PALETTE_V1.yellow_basic}
-              onClick={handleMakeLetter}>
-              완료
-            </ShadowButton>
-          </Link>
+          // <Link
+          //   to={`/writeletter/complete/${letterContents?.urlName}`}
+          //   state={{
+          //     from: "writeletter",
+          //   }}>
+          //   <ShadowButton
+          //     backgroundColor={PALETTE_V1.yellow_basic}
+          //     onClick={handleMakeLetter}>
+          //     완료
+          //   </ShadowButton>
+          // </Link>
+          <ShadowButton
+            backgroundColor={PALETTE_V1.yellow_basic}
+            onClick={handleMakeLetter}>
+            완료
+          </ShadowButton>
         ) : (
           <ShadowButton disabled backgroundColor="#d9d9d9">
             완료
