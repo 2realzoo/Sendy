@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as W from "../WriteLetter/WriteStyled";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { PALETTE_V1 } from "../../style/color";
 import defaultImage from "../../asset/completeCat.png";
 
@@ -34,8 +34,8 @@ const Triangle = styled.div`
   z-index: 100;
   &::after {
     content: "";
-    top: 0px;
-    right: 0px;
+    top: 0.2rem;
+    right: 0.2rem;
     width: 0;
     height: 0;
     position: absolute;
@@ -43,17 +43,182 @@ const Triangle = styled.div`
     border-top-color: transparent;
     border-right-color: transparent;
     z-index: 100;
+    ${(props) => {
+      switch (props.bordercolor) {
+        case "군대":
+          return css`
+            border-color: #81c200;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          `;
+        case "냥냥편지":
+          return css`
+            border-color: #84e524;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          `;
+        case "리본":
+          return css`
+            border-color: #f297b4;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          `;
+        case "수박":
+          return css`
+            border-color: #ed927e;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          `;
+        case "알록달록":
+          return css`
+            border-color: #ffe093;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          `;
+        case "얼룩":
+          return css`
+            border-color: #fbfdd9;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          `;
+        case "체리":
+          return css`
+            border-color: #b4ded6;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          `;
+        case "클로버":
+          return css`
+            border-color: #64f6a0;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          `;
+        case "정월대보름":
+          return css`
+            border-color: #85cbdf;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          `;
+        case "오리":
+          return css`
+            border-color: #00dafb;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          `;
+        case "구름":
+          return css`
+            border-color: #ffffff;
+            border-top-color: transparent;
+            border-right-color: transparent;
+          `;
+        default:
+          break;
+      }
+    }};
   }
   &::before {
     content: "";
     position: absolute;
     transform: rotate(-45deg);
-    top: -1.7rem;
+    top: -1.8rem;
     left: 4.2rem;
     width: 0.2rem;
     height: 12.4rem;
     background-color: black;
     z-index: 200;
+  }
+  @media screen and (max-width: 787px) and (min-width: 590px) {
+    width: 8.2rem;
+    height: 8.2rem;
+    background-color: ${PALETTE_V1.background};
+    border-left: 0.2rem solid;
+    border-bottom: 0.2rem solid;
+    top: 0rem;
+    &::after {
+      border: 4rem solid white;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      right: 0px;
+      top: 0px;
+      ${(props) => {
+        switch (props.bordercolor) {
+          case "군대":
+            return css`
+              border-color: #81c200;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "냥냥편지":
+            return css`
+              border-color: #84e524;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "리본":
+            return css`
+              border-color: #f297b4;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "수박":
+            return css`
+              border-color: #ed927e;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "알록달록":
+            return css`
+              border-color: #ffe093;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "얼룩":
+            return css`
+              border-color: #fbfdd9;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "체리":
+            return css`
+              border-color: #b4ded6;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "클로버":
+            return css`
+              border-color: #64f6a0;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "정월대보름":
+            return css`
+              border-color: #85cbdf;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "오리":
+            return css`
+              border-color: #00dafb;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "구름":
+            return css`
+              border-color: #ffffff;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          default:
+            break;
+        }
+      }};
+    }
+    &::before {
+      top: -1.6rem;
+      left: 3.8rem;
+      width: 0.15rem;
+      height: 11.4rem;
+    }
   }
   @media screen and (max-width: 590px) {
     width: 7.6rem;
@@ -65,6 +230,80 @@ const Triangle = styled.div`
       border: 3.8rem solid white;
       border-top-color: transparent;
       border-right-color: transparent;
+      top: 0px;
+      right: 0px;
+      ${(props) => {
+        switch (props.bordercolor) {
+          case "군대":
+            return css`
+              border-color: #81c200;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "냥냥편지":
+            return css`
+              border-color: #84e524;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "리본":
+            return css`
+              border-color: #f297b4;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "수박":
+            return css`
+              border-color: #ed927e;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "알록달록":
+            return css`
+              border-color: #ffe093;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "얼룩":
+            return css`
+              border-color: #fbfdd9;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "체리":
+            return css`
+              border-color: #b4ded6;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "클로버":
+            return css`
+              border-color: #64f6a0;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "정월대보름":
+            return css`
+              border-color: #85cbdf;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "오리":
+            return css`
+              border-color: #00dafb;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "구름":
+            return css`
+              border-color: #ffffff;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          default:
+            break;
+        }
+      }};
     }
     &::before {
       top: -1.6rem;
@@ -80,15 +319,89 @@ const Triangle = styled.div`
     border-left: 0.2rem solid;
     border-bottom: 0.2rem solid;
     &::after {
-      border: 2.6rem solid white;
+      border: 2.8rem solid white;
       border-top-color: transparent;
       border-right-color: transparent;
+      top: 2.5px;
+      right: 3px;
+      ${(props) => {
+        switch (props.bordercolor) {
+          case "군대":
+            return css`
+              border-color: #81c200;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "냥냥편지":
+            return css`
+              border-color: #84e524;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "리본":
+            return css`
+              border-color: #f297b4;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "수박":
+            return css`
+              border-color: #ed927e;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "알록달록":
+            return css`
+              border-color: #ffe093;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "얼룩":
+            return css`
+              border-color: #fbfdd9;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "체리":
+            return css`
+              border-color: #b4ded6;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "클로버":
+            return css`
+              border-color: #64f6a0;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "정월대보름":
+            return css`
+              border-color: #85cbdf;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "오리":
+            return css`
+              border-color: #00dafb;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "구름":
+            return css`
+              border-color: #ffffff;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          default:
+            break;
+        }
+      }};
     }
     &::before {
-      top: -1.2rem;
-      left: 2.8rem;
+      top: -1rem;
+      left: 2.9rem;
       width: 0.1rem;
-      height: 8.4rem;
+      height: 8.3rem;
     }
   }
   @media screen and (max-width: 380px) {
@@ -101,6 +414,80 @@ const Triangle = styled.div`
       border: 2.25rem solid white;
       border-top-color: transparent;
       border-right-color: transparent;
+      top: 0px;
+      right: 0px;
+      ${(props) => {
+        switch (props.bordercolor) {
+          case "군대":
+            return css`
+              border-color: #81c200;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "냥냥편지":
+            return css`
+              border-color: #84e524;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "리본":
+            return css`
+              border-color: #f297b4;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "수박":
+            return css`
+              border-color: #ed927e;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "알록달록":
+            return css`
+              border-color: #ffe093;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "얼룩":
+            return css`
+              border-color: #fbfdd9;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "체리":
+            return css`
+              border-color: #b4ded6;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "클로버":
+            return css`
+              border-color: #64f6a0;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "정월대보름":
+            return css`
+              border-color: #85cbdf;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "오리":
+            return css`
+              border-color: #00dafb;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          case "구름":
+            return css`
+              border-color: #ffffff;
+              border-top-color: transparent;
+              border-right-color: transparent;
+            `;
+          default:
+            break;
+        }
+      }};
     }
     &::before {
       top: -0.8rem;
@@ -129,6 +516,12 @@ const Card = styled.div`
       height: 10rem;
       top: -1rem;
       right: -2rem;
+    }
+    @media screen and (max-width: 787px) and (min-width: 590px) {
+      &::after {
+        top: -2rem;
+        right: -3.6rem;
+      }
     }
     @media screen and (max-width: 590px) {
       &::after {
@@ -162,7 +555,7 @@ const Card = styled.div`
       background-color: ${PALETTE_V1.background};
       width: 10rem;
       height: 10rem;
-      top: -1rem;
+      top: -2rem;
       left: -2rem;
     }
     @media screen and (max-width: 590px) {
@@ -207,7 +600,7 @@ const Preview = () => {
     <Container>
       <Wrapper>
         <Card className={rotate ? "active-rotate" : ""}>
-          <Triangle onClick={handleRotate} />
+          <Triangle onClick={handleRotate} bordercolor={themeName} />
           <W.LetterBox currentLetterTheme={themeName} className="front">
             <div className="top">
               <W.FlexWrapper1>
