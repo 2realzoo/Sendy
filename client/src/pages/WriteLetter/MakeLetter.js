@@ -56,20 +56,12 @@ function MakeLetter({ makeLetterModalRef }) {
         postMessageImage(imageFile, letterContents.urlName);
       })
       .catch((err) => {
-        console.log("if문 이전");
         if (err.response.status === 401) {
-          console.log("if문 안");
           Refresh().then(() => {
-            console.log("리프레시 성공");
-            postMessage(letterContents)
-              .then(() => {
-                console.log("postMessage성공");
-                postMessageImage(imageFile, letterContents.urlName);
-              })
-              .catch((err) => console.log(err));
+            postMessage(letterContents).then(() => {
+              postMessageImage(imageFile, letterContents.urlName);
+            });
           });
-        } else {
-          console.log(err);
         }
       });
   };
